@@ -19,7 +19,7 @@ class Scrapping_habr:
 
     def get_all_articles_from_page(self):
         headers = self.get_headers()
-        response = requests.get(url=(self.url +'/ru/all/'), headers=headers)
+        response = requests.get(url=(self.url + '/ru/all/'), headers=headers)
         text = response.text
         soup = BeautifulSoup(text, features='html.parser')
         articles = soup.find_all('article')
@@ -37,8 +37,9 @@ class Scrapping_habr:
                         date_of_article = article.find(class_="tm-article-snippet_"
                                                               "_datetime-published").next.attrs['datetime']
                         header_of_article = article.find(class_="tm-article-snippet").contents[2].text
-                        link_of_article = self.url + article.find(class_="tm-article-snippet").contents[2].next.attrs['href']
-                        return print(f'{date_of_article} - {header_of_article} - {link_of_article}')
+                        link_of_article = self.url + article.find(class_="tm-article-"
+                                                                         "snippet").contents[2].next.attrs['href']
+                        print(f'{date_of_article} - {header_of_article} - {link_of_article}')
 
 
 if __name__ == '__main__':
