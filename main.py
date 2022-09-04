@@ -58,6 +58,7 @@ class Scrapping_habr:
                             link_of_article = self.url + article.find(class_="tm-article-"
                                                                              "snippet").contents[2].next.attrs['href']
                             print(f'{date_of_article} - {header_of_article} - {link_of_article}')
+                            break
 
 
 if __name__ == '__main__':
